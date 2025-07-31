@@ -1,0 +1,40 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+html,
+body {
+  @apply bg-white dark:bg-gray-950;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+}
+
+@layer components {
+  .input{
+    @apply border border-gray-300 text-sm focus:outline-indigo-500 focus:outline-2 rounded-md px-3 py-2 hover:bg-gray-50
+  }
+
+  .plus{
+    @apply text-2xl font-normal mb-0.5
+  }
+
+  .buttonIndigo{
+    @apply flex items-center bg-indigo-600 text-sm text-white whitespace-nowrap px-4 py-2 rounded-md gap-x-2 cursor-pointer hover:bg-indigo-700 focus:outline-2 focus:outline-indigo-500 focus:outline-offset-2
+  }
+
+  .listElement{
+    @apply flex items-center gap-x-2 hover:bg-indigo-600 hover:text-white p-2 cursor-default
+  }
+
+  .radio{
+    @apply relative h-5 w-5 border rounded-full peer-checked:bg-indigo-600 peer-checked:outline-2 outline-indigo-600 outline-offset-2
+  }
+}
