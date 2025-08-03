@@ -39,7 +39,7 @@ export const Header = () => {
                 :
                 <div className="flex gap-x-3">
                     <Link to={'/signin'} className="input border-none hover:text-indigo-300 hover:bg-white cursor-pointer">Login</Link>
-                    <button className="buttonIndigo">Sign up</button>
+                    <button className="buttonIndigo cursor-not-allowed" disabled>Sign up</button>
                 </div>
             }
         </div>

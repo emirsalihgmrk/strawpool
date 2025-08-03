@@ -12,6 +12,7 @@ import type { PollDto } from "~/dto/PollDto";
 import type { OptionDto } from "~/dto/OptionDto";
 import { create } from "~/api/ApiPoll";
 import { useAuth } from "~/auth/AuthContext";
+import { Navigate, useNavigate } from "react-router";
 
 
 export default function CreatePoll() {
@@ -32,9 +33,12 @@ export default function CreatePoll() {
     };
     const [pollDto, setPollDto] = useState<PollDto>(defaultPollDto);
     const buttonRef = useRef<HTMLButtonElement>(null);
+    const navigate = useNavigate();
 
     const createPoll = async() => {
-        await create(pollDto,authAxios);
+        console.log("asds")
+        const response = await create(pollDto,authAxios);
+        return navigate(`/poll/${response.data.id}`)
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
